@@ -1,0 +1,53 @@
+{% extends 'league/base.html' %}
+
+{% block title %}{{ player.name }} Detayları{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card bg-dark text-white border border-danger shadow-lg">
+            <div class="card-header bg-danger text-center py-3">
+                <h2 class="mb-0 fw-bold text-white">OYUNCU FİYASKO PANELİ</h2>
+            </div>
+            <div class="card-body p-5">
+                <div class="text-center mb-4">
+                    <h1 class="display-2 fw-extrabold text-white mb-0">{{ player.name }}</h1>
+                    <p class="lead text-success fw-bold">{{ player.team }} | {{ player.get_position_display }}</p>
+                </div>
+
+                <div class="row text-center g-4">
+                    <div class="col-md-4">
+                        <div class="p-3 bg-secondary bg-opacity-25 border border-secondary rounded shadow-sm">
+                            <h6 class="text-uppercase text-danger small fw-bold">Kırmızı Kart</h6>
+                            <h2 class="display-6 text-white">{{ player.red_cards }}</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 bg-secondary bg-opacity-25 border border-secondary rounded shadow-sm">
+                            <h6 class="text-uppercase text-danger small fw-bold">Kendi Kalesine</h6>
+                            <h2 class="display-6 text-white">{{ player.own_goals }}</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 bg-secondary bg-opacity-25 border border-secondary rounded shadow-sm">
+                            <h6 class="text-uppercase text-danger small fw-bold">Kaçan Penaltı</h6>
+                            <h2 class="display-6 text-white">{{ player.missed_penalties }}</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5 p-4 bg-danger bg-opacity-10 border border-danger rounded text-center">
+                    <h5 class="text-danger fw-bold mb-1">TOPLAM FİYASKO PUANI</h5>
+                    <div class="display-1 fw-bold text-white">{{ player.anti_score }}</div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <a href="{% url 'player_list' %}" class="btn btn-outline-success btn-lg px-5">
+                        ← Listeye Geri Dön
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
