@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anti Fantasy Lig</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #121212; color: white; }
+        .table { background-color: #1e1e1e; color: white; border-radius: 10px; overflow: hidden; }
+        .fiyasko-badge { background-color: #ff4d4d; color: white; font-weight: bold; padding: 5px 10px; border-radius: 5px; }
+        .header-section { background: linear-gradient(45deg, #1db954, #191414); padding: 40px 0; margin-bottom: 30px; border-bottom: 4px solid #1db954; }
+    </style>
+</head>
+<body>
+
+<div class="header-section text-center">
+    <h1 class="display-4 fw-bold">FİYASKO LİG</h1>
+    <p class="lead">Haftanın en beceriksiz "yıldızları" burada.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h3 class="mb-4 text-success">Haftanın Liderleri</h3>
+            <table class="table table-hover table-dark align-middle">
+                <thead>
+                    <tr class="text-secondary">
+                        <th>OYUNCU</th>
+                        <th>TAKIM</th>
+                        <th>MEVKİ</th>
+                        <th class="text-center">FİYASKO PUANI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for player in players %}
+                    <tr>
+                        <td>
+                            <div class="fw-bold fs-5">{{ player.name }}</div>
+                        </td>
+                        <td><span class="badge bg-secondary">{{ player.team }}</span></td>
+                        <td>{{ player.get_position_display }}</td>
+                        <td class="text-center">
+                            <span class="fiyasko-badge">{{ player.anti_score }}</span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
