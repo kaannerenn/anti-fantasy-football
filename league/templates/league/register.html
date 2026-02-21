@@ -1,0 +1,49 @@
+
+{% extends 'league/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="col-md-5">
+        <div class="card bg-dark text-white border-success shadow-lg p-4">
+            <h2 class="text-center mb-4 text-success fw-bold">KADRONU KURMAYA BAŞLA</h2>
+
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    <ul class="mb-0">
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <li><strong>{{ field.label }}:</strong> {{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <form method="POST" novalidate>
+                {% csrf_token %}
+                
+                {% for field in form %}
+                <div class="mb-3">
+                    <label class="form-label text-success fw-bold">{{ field.label }}</label>
+                    <input type="{{ field.field.widget.input_type }}" 
+                           name="{{ field.html_name }}" 
+                           class="form-control bg-secondary bg-opacity-25 text-white border-secondary"
+                           placeholder="{{ field.label }} giriniz...">
+                    {% if field.help_text %}
+                        <small class="text-muted d-block mt-1" style="font-size: 0.75rem;">{{ field.help_text|linebreaksbr }}</small>
+                    {% endif %}
+                </div>
+                {% endfor %}
+
+                <div class="d-grid gap-2 mt-4">
+                    <button type="submit" class="btn btn-success btn-lg fw-bold">KAYIT OL</button>
+                    <a href="{% url 'login' %}" class="btn btn-outline-light btn-sm mt-2">Zaten hesabım var, Giriş Yap</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
