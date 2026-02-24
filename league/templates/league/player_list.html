@@ -6,7 +6,9 @@
 <div class="header-section text-center rounded-3">
     <h1 class="display-4 fw-bold">FİYASKO LİG</h1>
     <p class="lead">Haftanın en beceriksiz "yıldızları" burada.</p>
+    <a href="{% url 'my_squad' %}" class="btn btn-warning btn-m px-5 fw-bold shadow">Kadroyu Gör</a>
 </div>
+
 {% if messages %}
     {% for message in messages %}
         <div class="alert alert-{{ message.tags }}">
@@ -50,4 +52,5 @@
         </div>
     </div>
 </div>
+
 {% endblock %}

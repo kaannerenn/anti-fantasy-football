@@ -24,6 +24,14 @@
     <nav class="navbar navbar-expand-lg navbar-dark mb-4">
         <div class="container">
             <a class="navbar-brand fw-bold" href="{% url 'player_list' %}">FİYASKO LİG</a>
+                <div class="navbar-nav ms-auto"> {% if user.is_authenticated %}
+                    <span class="nav-link text-light me-3"><strong>{{ user.username }}</strong></span>
+                    <a class="btn btn-danger btn-sm text-white px-3 fw-bold d-inline-flex align-items-center" href="{% url 'logout' %}">Çıkış Yap</a>
+                    {% else %}
+                    <a class="nav-link" href="{% url 'login' %}">Giriş Yap</a>
+                    <a class="nav-link" href="{% url 'register' %}">Kayıt Ol</a>
+                    {% endif %}
+                </div>
         </div>
     </nav>
 
