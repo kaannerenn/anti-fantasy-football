@@ -7,7 +7,13 @@
     <h1 class="display-4 fw-bold">FİYASKO LİG</h1>
     <p class="lead">Haftanın en beceriksiz "yıldızları" burada.</p>
 </div>
-
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %} 
 <div class="row">
     <div class="col-md-12">
         <h3 class="mb-4 text-success">Haftanın Liderleri</h3>
@@ -27,6 +33,9 @@
                         <td>
                             <a href="{% url 'player_detail' pk=player.pk %}" class="text-decoration-none text-white fw-bold fs-5">
                                 {{ player.name }}
+                            </a>
+                            <a href="{% url 'add_to_team' player.id %}" class="btn btn-success btn-sm">
+                            Kadroya Ekle
                             </a>
                         </td>
                         <td><span class="badge bg-secondary">{{ player.team }}</span></td>

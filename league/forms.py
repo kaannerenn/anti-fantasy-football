@@ -3,7 +3,6 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
 class KayitFormu(UserCreationForm):
-    # TODO: Hata mesajlarını türkçeleştir.
     def __init__(self, *args, **kwargs):
         super().__init__(*args,**kwargs)
         self.fields['username'].label = "Kullanıcı Adı"
@@ -31,9 +30,9 @@ class KayitFormu(UserCreationForm):
         model = User
         fields = ("username",)
 
+        
 class LoginFormu(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].label = "Kullanıcı Adı"
         self.fields['password'].label = "Şifre"
-        # TODO: Diğer parametreleride türkçeleştir.

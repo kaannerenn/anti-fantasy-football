@@ -1,0 +1,36 @@
+{% extends 'league/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>{{ user_team.team_name }}</h2>
+        <div class="badge bg-danger fs-5">
+            Toplam Anti Fantasy Puanı: {{ user_team.total_team_score }}
+        </div>
+    </div>
+
+    {% if players %}
+        <div class="row">
+            {% for player in players %}
+            <div class="col-md-4 mb-3">
+                <div class="card bg-dark text-white border-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ player.name }}</h5>
+                        <p class="card-text text-muted">{{ player.get_position_display }} - {{ player.team }}</p>
+                        <hr class="border-secondary">
+                        <div class="d-flex justify-content-between">
+                            <span>Fiyasko Puanı:</span>
+                            <span class="fw-bold text-warning">{{ player.anti_score }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            Henüz kadronuzda oyuncu yok. <a href="{% url 'player_list' %}">Hemen oyuncu seç!</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
