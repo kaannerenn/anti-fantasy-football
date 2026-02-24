@@ -7,7 +7,25 @@ from django.contrib.auth.decorators import login_required
 
 def player_list(request):
     players = Player.objects.all()
-    return render(request, 'league/player_list.html', {'players': players})
+
+    name_query = request.GET.get('name')
+    team_query = request.GET.get('team')
+    position_query = request.GET.get('position')
+
+    if name_query:
+        players = players.filter(name__icontains=name_query)
+    
+    if team_query:
+        players = players.filter(team__icontains=team_query)
+
+    if position_query:
+        players = players.filter(position=position_query)
+
+    context = {
+        'players': players,
+        'positions': Player.POSITIONS,
+    }
+    return render(request, 'league/player_list.html', context)
 
 def player_detail(request,pk):
     player = get_object_or_404(Player,pk=pk)
