@@ -18,38 +18,62 @@
                 <div class="row text-center g-4">
                     <div class="col-md-4">
                         <div class="p-3 bg-secondary bg-opacity-25 border border-secondary rounded shadow-sm">
-                            <h6 class="text-uppercase text-danger small fw-bold">Kırmızı Kart</h6>
-                            <h2 class="display-6 text-white">{{ player.red_cards }}</h2>
+                            <h6 class="text-uppercase text-danger small fw-bold">Top Kaybı</h6>
+                            <h2 class="display-6 text-white">{{ player.turnovers }}</h2>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="p-3 bg-secondary bg-opacity-25 border border-secondary rounded shadow-sm">
-                            <h6 class="text-uppercase text-danger small fw-bold">Sarı Kart</h6>
-                            <h2 class="display-6 text-white">{{ player.yellow_cards }}</h2>
+                            <h6 class="text-uppercase text-danger small fw-bold">Faul</h6>
+                            <h2 class="display-6 text-white">{{ player.personal_fouls }}</h2>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="p-3 bg-secondary bg-opacity-25 border border-secondary rounded shadow-sm">
-                            <h6 class="text-uppercase text-danger small fw-bold">Kaçan Penaltı</h6>
-                            <h2 class="display-6 text-white">{{ player.missed_penalties }}</h2>
+                            <h6 class="text-uppercase text-danger small fw-bold">Kaçan Atış</h6>
+                            <h2 class="display-6 text-white">{{ player.field_goals_missed }}</h2>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="p-3 bg-secondary bg-opacity-25 border border-secondary rounded shadow-sm">
-                            <h6 class="text-uppercase text-danger small fw-bold">Kendi Kalesine gol</h6>
-                            <h2 class="display-6 text-white">{{ player.own_goals }}</h2>
+                            <h6 class="text-uppercase text-danger small fw-bold">Kaçan Serbest Atış</h6>
+                            <h2 class="display-6 text-white">{{ player.free_throws_missed }}</h2>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="p-3 bg-secondary bg-opacity-25 border border-secondary rounded shadow-sm">
-                            <h6 class="text-uppercase text-danger small fw-bold">Gole Sebep Olan Hata</h6>
-                            <h2 class="display-6 text-white">{{ player.errors_leading_to_goal }}</h2>
+                            <h6 class="text-uppercase text-danger small fw-bold">Sayı</h6>
+                            <h2 class="display-6 text-white">{{ player.points }}</h2>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="p-3 bg-secondary bg-opacity-25 border border-secondary rounded shadow-sm">
-                            <h6 class="text-uppercase text-danger small fw-bold">Gol Yenmeyen Maç</h6>
-                            <h2 class="display-6 text-white">{{ player.clean_sheets }}</h2>
+                            <h6 class="text-uppercase text-danger small fw-bold">Ribaund</h6>
+                            <h2 class="display-6 text-white">{{ player.rebounds }}</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 bg-secondary bg-opacity-25 border border-secondary rounded shadow-sm">
+                            <h6 class="text-uppercase text-danger small fw-bold">Asist</h6>
+                            <h2 class="display-6 text-white">{{ player.assists }}</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 bg-secondary bg-opacity-25 border border-secondary rounded shadow-sm">
+                            <h6 class="text-uppercase text-danger small fw-bold">3 Sayılık İsabet</h6>
+                            <h2 class="display-6 text-white">{{ player.three_pts }}</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 bg-secondary bg-opacity-25 border border-secondary rounded shadow-sm">
+                            <h6 class="text-uppercase text-danger small fw-bold">Top Çalma</h6>
+                            <h2 class="display-6 text-white">{{ player.steals }}</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 bg-secondary bg-opacity-25 border border-secondary rounded shadow-sm">
+                            <h6 class="text-uppercase text-danger small fw-bold">Blok</h6>
+                            <h2 class="display-6 text-white">{{ player.blocks }}</h2>
                         </div>
                     </div>
                 </div>

@@ -11,6 +11,14 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+YAHOO_CLIENT_ID = os.getenv('YAHOO_CLIENT_ID')
+YAHOO_CLIENT_SECRET = os.getenv('YAHOO_CLIENT_SECRET')
+YAHOO_LEAGUE_ID = os.getenv("YAHOO_LEAGUE_ID")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,6 +39,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'sslserver',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -1,0 +1,1 @@
+Bu proje başlangıçta bir Futbol Fantezi Ligi olarak tasarlandı, ancak veri sürekliliği ve canlı istatistikler için NBA versiyonuna pivot edildi.

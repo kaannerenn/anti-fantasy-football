@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Player,UserTeam
+from .models import Player, UserTeam
 from django.contrib import messages
 from .forms import KayitFormu
 from django.contrib.auth import login

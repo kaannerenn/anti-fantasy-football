@@ -1,2 +1,5 @@
 django
 requests
+django-sslserver
+django-extensions
+python-dotenv
