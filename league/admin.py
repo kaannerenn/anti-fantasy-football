@@ -3,7 +3,7 @@ from .models import Player, UserTeam
 
 @admin.register(Player)
 class PlayerAdmin(admin.ModelAdmin):
-    list_display = ('name', 'team', 'position', 'anti_score')
+    list_display = ('name', 'current_team','anti_score')
 
 
 @admin.register(UserTeam)

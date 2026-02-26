@@ -9,7 +9,7 @@ def player_list(request):
     players = Player.objects.all()
 
     name_query = request.GET.get('name')
-    team_query = request.GET.get('team')
+    team_query = request.GET.get('current_team')
     position_query = request.GET.get('position')
 
     if name_query:
@@ -23,7 +23,7 @@ def player_list(request):
 
     context = {
         'players': players,
-        'positions': Player.POSITIONS,
+        'positions': Player.position,
     }
     return render(request, 'league/player_list.html', context)
 

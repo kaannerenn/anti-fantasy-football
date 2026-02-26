@@ -3,3 +3,5 @@ requests
 django-sslserver
 django-extensions
 python-dotenv
+yahoo_oauth
+yahoo_fantasy_api
