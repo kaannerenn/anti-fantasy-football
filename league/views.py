@@ -75,3 +75,12 @@ def my_squad(request):
                       'user_team': user_team,
                       'players': players
                   })
+
+@login_required
+def remove_from_team(request, player_id):
+    user_team = get_object_or_404(UserTeam, user=request.user)
+    player = get_object_or_404(Player, player_id=player_id)
+
+    user_team.players.remove(player)
+
+    return redirect('my_squad')

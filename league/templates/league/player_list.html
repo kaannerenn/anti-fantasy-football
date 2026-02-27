@@ -24,8 +24,7 @@
                 <thead>
                     <tr class="text-secondary">
                         <th>OYUNCU</th>
-                        <th>TAKIM</th>
-                        <th>MEVKİ</th>
+                        <th>POZİSYON</th>
                         <th class="text-center">FİYASKO PUANI</th>
                     </tr>
                 </thead>
@@ -40,8 +39,8 @@
                             Kadroya Ekle
                             </a>
                         </td>
-                        <td><span class="badge bg-secondary">{{ player.team }}</span></td>
-                        <td>{{ player.get_position_display }}</td>
+                        
+                        <td>{{ player.position }}</td>
                         <td class="text-center">
                             <span class="fiyasko-badge">{{ player.anti_score }}</span>
                         </td>

@@ -16,11 +16,40 @@
                 <div class="card bg-dark text-white border-secondary">
                     <div class="card-body">
                         <h5 class="card-title">{{ player.name }}</h5>
-                        <p class="card-text">{{ player.get_position_display }} - {{ player.team }}</p>
+                        <p class="card-text">{{ player.position}}</p>
                         <hr class="border-secondary">
                         <div class="d-flex justify-content-between">
                             <span>Fiyasko Puanı:</span>
                             <span class="fw-bold text-warning">{{ player.anti_score }}</span>
+                        </div>
+                        <div class="d-grid">
+                            <button type="button" 
+                                    class="btn btn-outline-danger btn-sm" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#deleteModal{{ player.player_id }}">
+                                Kadrodan Çıkar
+                            </button>
+                        </div>
+
+                        <div class="modal fade" id="deleteModal{{ player.player_id }}" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content bg-dark text-white border-secondary">
+                            <div class="modal-header border-secondary">
+                                <h5 class="modal-title text-danger">Kadro Değişikliği</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <p class="fs-5">
+                                    <span class="fw-bold text-warning">{{ player.name }}</span> <br>
+                                    kadrodan çıkarılsın mı?
+                                </p>
+                            </div>
+                            <div class="modal-footer border-secondary justify-content-center">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vazgeç</button>
+                                <a href="{% url 'remove_from_team' player.player_id %}" class="btn btn-danger px-4">Evet, Çıkar</a>
+                            </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -32,5 +61,4 @@
             Henüz kadronuzda oyuncu yok. <a href="{% url 'player_list' %}">Hemen oyuncu seç!</a>
         </div>
     {% endif %}
-</div>
 {% endblock %}
