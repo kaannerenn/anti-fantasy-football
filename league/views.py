@@ -38,7 +38,7 @@ def register(request):
             user = form.save()
             UserTeam.objects.create(
                 user = user,
-                team_name = f"{user.username} Kadrosu",
+                team_name = f"{user.username}",
                 # Takım adını otomatik atamak yerine soradabiliriz daha sonra (!!Hatırlatma)
             )
             login(request, user) # otomatik giriş
@@ -56,8 +56,8 @@ def add_to_team(request, player_id):
     if player in user_team.players.all():
         messages.warning(request, f"{player.name} zaten kadronda.")
 
-    elif user_team.players.count() >= 5:
-        messages.error(request,"Kadronuz dolu maksimum 5 oyuncu seçebilirsiniz.")
+    elif user_team.players.count() >= 12:
+        messages.error(request,"Kadronuz dolu maksimum 12 oyuncu seçebilirsiniz.")
 
     else:
         user_team.players.add(player)
@@ -84,3 +84,13 @@ def remove_from_team(request, player_id):
     user_team.players.remove(player)
 
     return redirect('my_squad')
+
+def leaderboard(request):
+    all_teams = UserTeam.objects.all()
+
+    sorted_teams = sorted(
+        all_teams,
+        key=lambda t: t.total_team_score,
+        reverse=True
+    )
+    return render(request, 'league/leaderboard.html', {'teams': sorted_teams})

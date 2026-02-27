@@ -1,0 +1,45 @@
+{% extends 'league/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 text-warning fw-bold">Fiyasko Liderlik Tablosu</h1>
+        <p class="text-muted">Ligin en kötü performans sergileyen "efsane" takımları</p>
+    </div>
+
+    <div class="card bg-dark border-secondary shadow-lg">
+        <div class="card-body p-0">
+            <table class="table table-dark table-hover mb-0">
+                <thead class="table-secondary text-dark">
+                    <tr>
+                        <th scope="col" class="text-center">Sıra</th>
+                        <th scope="col">Kullanıcı</th>
+                        <th scope="col" class="text-center">Oyuncu Sayısı</th>
+                        <th scope="col" class="text-end pe-4">Toplam Anti-Puan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for team in teams %}
+                    <tr {% if team.user == request.user %}class="table-active border-warning"{% endif %}>
+                        <td class="text-center fw-bold fs-5">
+                            {{ forloop.counter }}
+                        </td>
+                        <td>
+                            <span class="fw-bold">{{ team.team_name }}</span><br>
+                        </td>
+                        <td class="text-center">{{ team.players.count }} / 12</td>
+                        <td class="text-end pe-4 fw-bold text-danger fs-5">
+                            {{ team.total_team_score }}
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4" class="text-center py-4">Henüz kayıtlı bir takım bulunmuyor.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

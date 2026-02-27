@@ -12,4 +12,5 @@ urlpatterns = [
     path('add-to-team/<int:player_id>/', views.add_to_team, name='add_to_team'),
     path('my-squad/',views.my_squad,name='my_squad'),
     path('remove-player/<str:player_id>/', views.remove_from_team, name='remove_from_team'),
+    path('leaderboard/', views.leaderboard, name='leaderboard'),
 ]
